@@ -19,3 +19,25 @@ Or go to the directory of your code:
 `cd C:\dir_to_code`
 
 `python C:\dir_to_src\Cobalt.py code.cobalt`
+
+Building the code creates a go file in the same directory as the code.
+
+## Example
+Here is an example of how to print "Hello World" in Cobalt:
+
+~~~
+display:"Hello World";
+~~~
+
+Notice how the go code is:
+
+~~~
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello World")
+	
+}
+~~~
