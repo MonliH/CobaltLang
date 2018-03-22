@@ -44,6 +44,9 @@ class MakeTokens:
                 expr += word
                 word = ""
                 is_expr = True
+            elif is_expr and word == ".":
+                expr += word
+                word = ""
             elif char == "\"":
                 if not is_string:
                     is_string = True
