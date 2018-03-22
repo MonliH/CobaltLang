@@ -12,4 +12,4 @@ def main(filename):
     os.system(f'cd {os.getcwd()} && go run {filename[0:-7] + ".go"}')
 
 
-main("test.cobalt")
+main(argv[1])

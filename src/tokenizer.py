@@ -37,7 +37,7 @@ class MakeTokens:
                 word = ""
             elif word == "display":
                 self.tokens.append(["DISPLAY", self.line])
-            elif word.isdigit():
+            elif word.isdigit() or word == ".":
                 expr += word
                 word = ""
             elif word in "+/%*-":
