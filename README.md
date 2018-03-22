@@ -41,3 +41,5 @@ func main() {
 	
 }
 ~~~
+## Documentation
+View [documentation.txt](https://github.com/MonliH/ColbaltLang/blob/master/documentation.txt) for the documentation.
