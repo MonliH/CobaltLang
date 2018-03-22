@@ -12,5 +12,4 @@ def main(filename):
     os.system(f'cd {os.getcwd()} && go run {filename[0:-7] + ".go"}')
 
 
-if __name__ == '__main__':
-    main("test.cobalt")
+main("test.cobalt")
