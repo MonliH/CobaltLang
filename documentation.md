@@ -33,4 +33,4 @@ Hello World!
 30
 7
 ~~~
-Notice how you need a semicolon at the end of each line. You can display strings, numbers, expressions, and variables.
+Notice how you need a semicolon at the end of each line. You can display strings, numbers, expressions, and variables``(for now)``.
