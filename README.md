@@ -29,6 +29,8 @@ Here is an example of how to print "Hello World" in Cobalt:
 display:"Hello World";
 ~~~
 
+Save this file as a .cobalt file.
+
 Notice how the go code is:
 
 ~~~
