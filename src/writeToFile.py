@@ -35,18 +35,11 @@ class BuildToCPP:
             self.go_code += f"{varname} := {value[7:]}\n\t"
 
     def do_input(self, text, variable_name):
-        if "os" not in self.imported:
-            self.imported.append("os")
-            self.imports.append("os")
-        if "bufio" not in self.imported:
-            self.imported.append("bufio")
-            self.imports.append("bufio")
         if "fmt" not in self.imported:
             self.imported.append("fmt")
             self.imports.append("fmt")
 
-        self.go_code += f"reader := bufio.NewReader(os.Stdin)\n\tfmt.Printf({text})\n\t{variable_name}, _ := reader.ReadString(\'\\n\')\n\t"
-
+        self.go_code += f"fmt.Printf({text})\n\tfmt.Scanf(\"%s\", &{variable_name})\n\t"
 
     def build(self):
         if not isfile(self.filename):
