@@ -47,6 +47,10 @@ class MakeTokens:
             elif word == "var":
                 is_var = True
                 word = ""
+            elif word == "geti":
+                self.tokens.append(["INPUT", self.line])
+            elif char == ",":
+                self.tokens.append(["COMMA", self.line])
             elif char == "=":
                 var_name = var_name.replace(" ", "")
                 self.tokens.append([f"VAR:{var_name}", self.line])
@@ -59,10 +63,10 @@ class MakeTokens:
             elif word == "display":
                 self.tokens.append(["DISPLAY", self.line])
                 word = ""
-            elif word.isdigit() or char == ".":
+            elif word.isdigit() or char == "." and not is_string:
                 expr += word
                 word = ""
-            elif char in "+/%*-":
+            elif char in "+/%*-" and not is_string:
                 expr += word
                 word = ""
                 is_expr = True
