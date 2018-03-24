@@ -38,7 +38,7 @@ class MakeTokens:
                 is_var = False
             elif word == "\n":
                 word = ""
-            elif char == ":":
+            elif char == ":" and not is_string:
                 self.tokens.append(["COLON", self.line])
                 word = ""
             elif char == "@":
@@ -47,7 +47,7 @@ class MakeTokens:
             elif word == "var":
                 is_var = True
                 word = ""
-            elif word == "geti":
+            elif word == "input":
                 self.tokens.append(["INPUT", self.line])
             elif char == "," and not is_string:
                 self.tokens.append(["COMMA", self.line])
