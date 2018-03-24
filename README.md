@@ -1,4 +1,7 @@
 # CobaltLang
+
+<img src="https://raw.githubusercontent.com/MonliH/CobaltLang/master/logo/Main_logo.png" width="200" height="112.5" />
+
 A transpiler for the programming language called Cobalt. Transpiles into Golang.
 
 **Tested only on windows.**
