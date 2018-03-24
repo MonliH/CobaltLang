@@ -34,6 +34,21 @@ class BuildToCPP:
         elif value[0:6] == "STRING":
             self.go_code += f"{varname} := {value[7:]}\n\t"
 
+    def do_input(self, text, variable_name):
+        if "os" not in self.imported:
+            self.imported.append("os")
+            self.imports.append("os")
+        if "bufio" not in self.imported:
+            self.imported.append("bufio")
+            self.imports.append("bufio")
+        if "fmt" not in self.imported:
+            self.imported.append("fmt")
+            self.imports.append("fmt")
+
+        self.go_code += f"reader := bufio.NewReader(os.Stdin)\n\tfmt.Printf({text})\
+                        \n\t{variable_name}, _ := reader.ReadString(\'\\n\')\n\t"
+
+
     def build(self):
         if not isfile(self.filename):
             file = open(self.filename[0:-7] + ".go", "w+")
@@ -46,6 +61,9 @@ class BuildToCPP:
             if f"{self.tokens[i][0]} {self.tokens[i + 1][0]}" == "DISPLAY COLON":
                 self.do_display(self.tokens[i + 2][0])
                 i += 3
+            elif f"{self.tokens[i][0]} {self.tokens[i + 1][0]} {self.tokens[i + 3][0]}" == "INPUT COLON COMMA":
+                self.do_input(self.tokens[i + 2][0][7:], self.tokens[i + 4][0][4:])
+                i += 5
             elif f"{self.tokens[i][0][0:3]} {self.tokens[i + 1][0][0:6]}" == "VAR EQUALS":
                 self.do_var(self.tokens[i + 2][0], self.tokens[i][0][4:])
                 i += 3
