@@ -13,13 +13,13 @@ In the terminal run these commands:
 
 `cd C:\dir_to_Cobaltlang_src`
 
-`python Cobalt.py C:\dir_to_code\codename.cobalt`
+`python Cobalt.py C:\dir_to_code\codename.cobalt True`
 
 Or go to the directory of your code:
 
 `cd C:\dir_to_code`
 
-`python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt`
+`python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt True`
 
 Building the code creates a go file in the same directory as the code.
 
