@@ -49,7 +49,7 @@ class MakeTokens:
                 word = ""
             elif word == "geti":
                 self.tokens.append(["INPUT", self.line])
-            elif char == ",":
+            elif char == "," and not is_string:
                 self.tokens.append(["COMMA", self.line])
             elif char == "=":
                 var_name = var_name.replace(" ", "")
