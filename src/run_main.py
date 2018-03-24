@@ -4,12 +4,28 @@ import tokenizer
 import writeToFile
 import os
 
+run_list = ["f", "false", "False", "n", "no"]
 
-def main(filename):
+
+def main(filename, is_run_go):
+    try:
+        from colorama import init, Fore
+        init()
+        print(Fore.BLUE + "Compiling Cobalt Code.." + Fore.RESET)
+    except ImportError:
+        print("Compiling Cobalt Code..")
     file_contents = tokenizer.MakeTokens(filename)
     tokens = file_contents.get_tokens()
     writeToFile.BuildToCPP(tokens, filename).build()
-    os.system(f'cd {os.getcwd()} && go run {filename[0:-7] + ".go"}')
+
+    if is_run_go not in run_list:
+        try:
+            from colorama import init, Fore
+            init()
+            print(Fore.BLUE + "Compiling Golang Code.." + Fore.RESET)
+        except ImportError:
+            print("Compiling Golang Code..")
+        os.system(f"cd {os.getcwd()} && go run {filename[0:-7] + '.go'}")
 
 
-main("test.cobalt")
+main(argv[1], argv[2])

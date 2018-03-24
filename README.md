@@ -1,4 +1,4 @@
-# ColbaltLang
+# CobaltLang
 A transpiler for the programming language called Cobalt. Transpiles into Golang.
 
 **Tested only on windows.**
@@ -6,21 +6,31 @@ A transpiler for the programming language called Cobalt. Transpiles into Golang.
 ## Dependencies
 * [Python 3](https://www.python.org/)
 * [Golang](https://golang.org/)
+* [Colorama Module](https://pypi.python.org/pypi/colorama) (For better results)
 
 ## Build
 In the terminal run these commands:
 
-`cd C:\dir_to_src`
+`cd C:\dir_to_Cobaltlang_src`
 
-`python Cobalt.py C:\dir_to_code\codename.cobalt`
+`python Cobalt.py C:\dir_to_code\codename.cobalt True`
 
 Or go to the directory of your code:
 
 `cd C:\dir_to_code`
 
-`python C:\dir_to_src\Cobalt.py code.cobalt`
+`python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt True`
 
 Building the code creates a go file in the same directory as the code.
+
+If you write f, no, false, or False at the end, it will not compile the Go code, but if you write y, yes, True, or true, it will not 
+compile the Go code but only turn it into Go code
+
+For example this code will not run the Go compiler:
+
+`cd C:\dir_to_code`
+
+`python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt False`
 
 ## Example
 Here is an example of how to print "Hello World" in Cobalt:
@@ -31,7 +41,7 @@ display:"Hello World";
 
 Save this file as a .cobalt file.
 
-Notice how the go code is:
+Notice what the Go code looks like:
 
 ~~~
 package main
@@ -44,4 +54,4 @@ func main() {
 }
 ~~~
 ## Documentation
-View [documentation.txt](https://github.com/MonliH/ColbaltLang/blob/master/documentation.md) for the documentation.
+View [the wiki](https://github.com/MonliH/CobaltLang/wiki) for the documentation.
