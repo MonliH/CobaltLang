@@ -45,8 +45,7 @@ class BuildToCPP:
             self.imported.append("fmt")
             self.imports.append("fmt")
 
-        self.go_code += f"reader := bufio.NewReader(os.Stdin)\n\tfmt.Printf({text})\
-                            \n\t{variable_name}, _ := reader.ReadString(\'\\n\')\n\t"
+        self.go_code += f"reader := bufio.NewReader(os.Stdin)\n\tfmt.Printf({text})\n\t{variable_name}, _ := reader.ReadString(\'\\n\')\n\t"
 
 
     def build(self):
