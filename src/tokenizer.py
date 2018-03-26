@@ -43,8 +43,12 @@ class MakeTokens:
                     is_if = False
                     is_if_started = True
                 if is_if_started and if_contents != "":
-                    condition = condition.replace(" ", "")
-                    self.tokens.append([f"IF_CONTENTS:{if_contents}", self.line])
+                    import if_tokenizer
+                    if_contents = if_contents.replace(" ", "")
+                    if_contents = if_contents.replace("\t", "")
+                    if_contents = if_tokenizer.tokenizer_if().tokens(if_contents, self.line)
+                    for i in if_contents:
+                        self.tokens.append(i)
                     self.tokens.append([f"BRACKETr", self.line])
                     is_if_started = False
                 self.line += 1
@@ -53,7 +57,7 @@ class MakeTokens:
                 is_var = False
             elif word == "\n":
                 word = ""
-            elif char == ":" and not is_string:
+            elif char == ":" and not is_string and not is_if_started:
                 self.tokens.append(["COLON", self.line])
                 word = ""
             elif char == "@":
@@ -61,7 +65,7 @@ class MakeTokens:
                 word = ""
             elif word == "if":
                 is_if = True
-                self.tokens.append("IF")
+                self.tokens.append(["IF", self.line])
             elif is_if:
                 condition += char
             elif is_if_started:
@@ -85,7 +89,7 @@ class MakeTokens:
             elif word == "display":
                 self.tokens.append(["DISPLAY", self.line])
                 word = ""
-            elif word.isdigit() or char == "." and not is_string:
+            elif char.isdigit() or char == "." and not is_string:
                 expr += word
                 word = ""
             elif char in "+/%*-" and not is_string:
