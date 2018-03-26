@@ -99,5 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+# jetbrains pycharm files
 *.iml
 *.xml
