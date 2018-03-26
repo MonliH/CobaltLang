@@ -1,0 +1,3 @@
+var x = "";
+input: "Enter your favorite number: ", @x;
+display: @x + " is your favorite number!";
