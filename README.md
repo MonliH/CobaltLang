@@ -11,6 +11,9 @@ A transpiler for the programming language called Cobalt. Transpiles into Golang.
 * [Golang](https://golang.org/)
 * [Colorama Module](https://pypi.python.org/pypi/colorama) (For better results)
 
+## Documentation
+View [the wiki](https://github.com/MonliH/CobaltLang/wiki) for the documentation.
+
 ## Build
 In the terminal run these commands:
 
@@ -56,5 +59,3 @@ func main() {
 	
 }
 ~~~
-## Documentation
-View [the wiki](https://github.com/MonliH/CobaltLang/wiki) for the documentation.
