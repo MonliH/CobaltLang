@@ -18,6 +18,7 @@ class MakeTokens:
         expr = ""
         var_name = ""
         condition = ""
+        if_contents = ""
         is_expr = False
         is_if = False
         is_if_started = False
@@ -38,9 +39,14 @@ class MakeTokens:
                 if is_if and condition != "":
                     condition = condition.replace(" ", "")
                     self.tokens.append([f"CONDITION:{condition}", self.line])
+                    self.tokens.append([f"BRACKETl", self.line])
                     is_if = False
                     is_if_started = True
-
+                if is_if_started and if_contents != "":
+                    condition = condition.replace(" ", "")
+                    self.tokens.append([f"IF_CONTENTS:{if_contents}", self.line])
+                    self.tokens.append([f"BRACKETr", self.line])
+                    is_if_started = False
                 self.line += 1
                 word = ""
                 is_expr = False
@@ -58,6 +64,8 @@ class MakeTokens:
                 self.tokens.append("IF")
             elif is_if:
                 condition += char
+            elif is_if_started:
+                if_contents += char
             elif word == "var":
                 is_var = True
                 word = ""

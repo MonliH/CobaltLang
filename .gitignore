@@ -102,4 +102,7 @@ ENV/
 # jetbrains pycharm files
 *.iml
 *.xml
+
+# go files
+*.go
 Test.cobalt
