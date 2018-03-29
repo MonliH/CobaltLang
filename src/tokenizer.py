@@ -26,7 +26,6 @@ class MakeTokens:
         is_var = False
         for char in self.open_file():
             word += char
-            print(word)
             if char == ";" or char == "{" and is_if or char == "}" and is_if_started:
                 if expr != "" and is_expr and not is_var:
                     self.tokens.append([f"EXPR:{expr}", self.line])
