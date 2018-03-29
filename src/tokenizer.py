@@ -26,6 +26,7 @@ class MakeTokens:
         is_var = False
         for char in self.open_file():
             word += char
+            print(word)
             if char == ";" or char == "{" and is_if or char == "}" and is_if_started:
                 if expr != "" and is_expr and not is_var:
                     self.tokens.append([f"EXPR:{expr}", self.line])
@@ -53,9 +54,16 @@ class MakeTokens:
                     is_if_started = False
                 self.line += 1
                 word = ""
+                string = ""
                 is_expr = False
                 is_var = False
             elif word == "\n":
+                word = ""
+            elif word.replace(" ", "") == "int":
+                self.tokens.append(["INT", self.line])
+                word = ""
+            elif word.replace(" ", "") == "str":
+                self.tokens.append(["STR", self.line])
                 word = ""
             elif char == ":" and not is_string and not is_if_started:
                 self.tokens.append(["COLON", self.line])
@@ -66,6 +74,7 @@ class MakeTokens:
             elif word == "if":
                 is_if = True
                 self.tokens.append(["IF", self.line])
+                word = ""
             elif is_if:
                 condition += char
             elif is_if_started:
@@ -75,8 +84,15 @@ class MakeTokens:
                 word = ""
             elif word == "input":
                 self.tokens.append(["INPUT", self.line])
+                word = ""
             elif char == "," and not is_string:
+                if var_name != "":
+                    self.tokens.append([f"VAR:{var_name}", self.line])
+                    var_name = ""
+                    word = ""
+                    is_var = False
                 self.tokens.append(["COMMA", self.line])
+                word = ""
             elif char == "=":
                 var_name = var_name.replace(" ", "")
                 self.tokens.append([f"VAR:{var_name}", self.line])

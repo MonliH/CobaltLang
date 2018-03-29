@@ -23,9 +23,9 @@ class tokenizer_if:
                     expr = ""
                 if is_var and var_name != "":
                     tokens.append([f"VAR:{var_name}", line])
-                    var_name = ""
                 line += 1
                 word = ""
+                var_name = ""
                 is_expr = False
                 is_var = False
             elif word == "\n":
