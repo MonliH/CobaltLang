@@ -16,13 +16,13 @@ class tokenizer_if:
             word += char
             if char == ";":
                 if expr != "" and is_expr and not is_var:
-                    tokens.append([f"EXPR:{expr}", line])
+                    tokens.append(["EXPR:{}".format(expr), line])
                     expr = ""
                 elif expr != "" and not is_expr:
-                    tokens.append([f"NUM:{expr}", line])
+                    tokens.append(["NUM:{}".format(expr), line])
                     expr = ""
                 if is_var and var_name != "":
-                    tokens.append([f"VAR:{var_name}", line])
+                    tokens.append(["VAR:{}".format(var_name), line])
                 line += 1
                 word = ""
                 var_name = ""
@@ -44,7 +44,7 @@ class tokenizer_if:
                 tokens.append(["COMMA", line])
             elif char == "=" and not is_string:
                 var_name = var_name.replace(" ", "")
-                tokens.append([f"VAR:{var_name}", line])
+                tokens.append(["VAR:{}".format(var_name), line])
                 tokens.append(["EQUALS", line])
                 var_name = ""
                 word = ""

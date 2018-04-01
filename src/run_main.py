@@ -2,7 +2,9 @@ from sys import argv
 
 import tokenizer
 import writeToFile
-import os
+from subprocess import check_output
+from os import getcwd, system
+from os.path import commonpath
 
 run_list = ["f", "false", "False", "n", "no"]
 
@@ -25,7 +27,7 @@ def main(filename, is_run_go):
             print(Fore.BLUE + "Compiling Golang Code..")
         except ImportError:
             print("Compiling Golang Code..")
-        os.system(f"cd {os.getcwd()} && go run {filename[0:-7] + '.go'}")
+        system('go run {}'.format(filename[0:-7] + '.go'))
 
 
 main(argv[1], argv[2])

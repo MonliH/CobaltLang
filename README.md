@@ -27,6 +27,12 @@ Or go to the directory of your code:
 
 `python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt True`
 
+You could also add src to your path and do this code:
+
+`cd C:\dir_to_code`
+
+`python Cobalt.py code.cobalt True`
+
 Building the code creates a go file in the same directory as the code.
 
 If you write f, n, no, false, or False at the end, it will not compile the Go code, but if you write t, y, yes, True, or true, it will not

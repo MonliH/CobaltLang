@@ -28,18 +28,18 @@ class MakeTokens:
             word += char
             if char == ";" or char == "{" and is_if or char == "}" and is_if_started:
                 if expr != "" and is_expr and not is_var:
-                    self.tokens.append([f"EXPR:{expr}", self.line])
+                    self.tokens.append(["EXPR:{}".format(), self.line])
                     expr = ""
                 elif expr != "" and not is_expr:
-                    self.tokens.append([f"NUM:{expr}", self.line])
+                    self.tokens.append(["NUM:{}".format(expr), self.line])
                     expr = ""
                 if is_var and var_name != "":
-                    self.tokens.append([f"VAR:{var_name}", self.line])
+                    self.tokens.append(["VAR:{}".format(var_name), self.line])
                     var_name = ""
                 if is_if and condition != "":
                     condition = condition.replace(" ", "")
-                    self.tokens.append([f"CONDITION:{condition}", self.line])
-                    self.tokens.append([f"BRACKETl", self.line])
+                    self.tokens.append(["CONDITION:{}".format(condition), self.line])
+                    self.tokens.append(["BRACKETl", self.line])
                     is_if = False
                     is_if_started = True
                 if is_if_started and if_contents != "":
@@ -49,7 +49,7 @@ class MakeTokens:
                     if_contents = if_tokenizer.tokenizer_if().tokens(if_contents, self.line)
                     for i in if_contents:
                         self.tokens.append(i)
-                    self.tokens.append([f"BRACKETr", self.line])
+                    self.tokens.append(["BRACKETr", self.line])
                     is_if_started = False
                 self.line += 1
                 word = ""
@@ -74,6 +74,10 @@ class MakeTokens:
                 is_if = True
                 self.tokens.append(["IF", self.line])
                 word = ""
+            elif word == "else":
+                is_if = True
+                self.tokens.append(["ELSE", self.line])
+                word = ""
             elif is_if:
                 condition += char
             elif is_if_started:
@@ -86,7 +90,7 @@ class MakeTokens:
                 word = ""
             elif char == "," and not is_string:
                 if var_name != "":
-                    self.tokens.append([f"VAR:{var_name}", self.line])
+                    self.tokens.append(["VAR:{}".format(var_name), self.line])
                     var_name = ""
                     word = ""
                     is_var = False
@@ -94,7 +98,7 @@ class MakeTokens:
                 word = ""
             elif char == "=":
                 var_name = var_name.replace(" ", "")
-                self.tokens.append([f"VAR:{var_name}", self.line])
+                self.tokens.append(["VAR:{}".format(var_name), self.line])
                 self.tokens.append(["EQUALS", self.line])
                 var_name = ""
                 word = ""
