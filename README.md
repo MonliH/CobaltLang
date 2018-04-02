@@ -6,6 +6,8 @@ A transpiler for the programming language called Cobalt. Transpiles into Golang.
 
 **Tested only on windows.**
 
+**Still in bata phase, there are lots of bugs in the code**
+
 ## Dependencies
 * [Python 3](https://www.python.org/)
 * [Golang](https://golang.org/)
