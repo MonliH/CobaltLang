@@ -29,11 +29,11 @@ Or go to the directory of your code:
 
 `python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt True`
 
-You could also add src to your path and do this code:
+You could also add `bin` to your path and run this:
 
 `cd C:\dir_to_code`
 
-`python Cobalt.py code.cobalt True`
+`Cobalt code.cobalt True`
 
 Building the code creates a go file in the same directory as the code.
 
@@ -44,7 +44,7 @@ For example this code will not run the Go compiler:
 
 `cd C:\dir_to_code`
 
-`python C:\dir_to_Cobaltlang_src\Cobalt.py code.cobalt False`
+`Cobalt code.cobalt False`
 
 ## Example
 Here is an example of how to print "Hello World" in Cobalt:
