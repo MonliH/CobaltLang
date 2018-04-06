@@ -26,9 +26,10 @@ class MakeTokens:
         is_var = False
         for char in self.open_file():
             word += char
+            print(word)
             if char == ";" or char == "{" and is_if or char == "}" and is_if_started:
                 if expr != "" and is_expr and not is_var:
-                    self.tokens.append(["EXPR:{}".format(), self.line])
+                    self.tokens.append(["EXPR:{}".format(expr), self.line])
                     expr = ""
                 elif expr != "" and not is_expr:
                     self.tokens.append(["NUM:{}".format(expr), self.line])
@@ -42,6 +43,7 @@ class MakeTokens:
                     self.tokens.append(["BRACKETl", self.line])
                     is_if = False
                     is_if_started = True
+                    word = ""
                 if is_if_started and if_contents != "":
                     import if_tokenizer
                     if_contents = if_contents.replace(" ", "")
@@ -51,11 +53,13 @@ class MakeTokens:
                         self.tokens.append(i)
                     self.tokens.append(["BRACKETr", self.line])
                     is_if_started = False
+                    word = ""
                 self.line += 1
                 word = ""
                 string = ""
                 is_expr = False
                 is_var = False
+                if_contents = ""
             elif word == "\n":
                 word = ""
             elif word.replace(" ", "") == "int":
