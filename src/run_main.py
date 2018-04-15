@@ -1,10 +1,9 @@
-from sys import argv
-
 import tokenizer
 import writeToFile
+
+from sys import argv
 from subprocess import check_output
 from os import getcwd, system
-from os.path import commonpath
 
 run_list = ["f", "false", "False", "n", "no"]
 

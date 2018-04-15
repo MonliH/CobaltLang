@@ -103,6 +103,11 @@ ENV/
 *.iml
 *.xml
 
+# VS
+*.sou
+*.sqlite
+*.json
+
 # go files
 *.go
 
