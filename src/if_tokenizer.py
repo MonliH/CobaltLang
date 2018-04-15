@@ -8,7 +8,6 @@ class tokenizer_if:
         string = ""
         expr = ""
         var_name = ""
-        condition = ""
         is_expr = False
         is_string = False
         is_var = False
