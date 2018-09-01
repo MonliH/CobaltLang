@@ -1,3 +1,4 @@
+# There is now a new interpreter here: [CobaltLang Made In Go]()
 # CobaltLang
 
 <img src="https://raw.githubusercontent.com/MonliH/CobaltLang/master/logo/Main_logo.png" width="200" height="112.5" />
