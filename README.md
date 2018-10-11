@@ -1,4 +1,4 @@
-# This is no longer supported, there is a better language here: [CoperrLang](https://github.com/MonliH/Coperr)
+# This is no longer supported
 # CobaltLang
 
 <img src="https://raw.githubusercontent.com/MonliH/CobaltLang/master/logo/Main_logo.png" width="200" height="112.5" />
