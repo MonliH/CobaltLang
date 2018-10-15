@@ -69,4 +69,4 @@ func main() {
 }
 ~~~
 
-The Cobalt tranpiller will try to make the go code the most readable.
+The Cobalt transpiller will try to make the go code the most readable.
