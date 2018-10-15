@@ -38,7 +38,7 @@ You could also add `bin` to your path and run this:
 
 Building the code creates a go file in the same directory as the code.
 
-If you write f, n, no, false, or False at the end, it will not compile the Go code, but if you write t, y, yes, True, or true, it will not
+If you write f, n, no, false, or False at the end, it will compile the Go code, but if you write t, y, yes, True, or true, it will not
 compile the Go code but only turn it into Go code
 
 For example this code will not run the Go compiler:
