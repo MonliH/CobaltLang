@@ -5,6 +5,8 @@
 
 A transpiler for the programming language called Cobalt. Transpiles into Golang.
 
+There is a better programming language called [Coperr](https://github.com/MonliH/coperr-lang)
+
 **Tested only on windows.**
 
 **Still in bata phase, there are lots of bugs in the code**
